@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <menuitem
+    name="Poll Manage"
+    id="menu_poll_manage"
+    sequence="1"
+    web_icon="poll,static/description/icon.png"/>
+      <menuitem
+        name="Settings"
+        id="menu_config"
+        parent="poll.menu_poll_manage"
+        sequence="1"/>
+          <menuitem
+            name="Events"
+            id="menu_levents"
+            parent="poll.menu_config"
+            action="poll.event_action_form"
+            sequence="1"/>
+          <menuitem
+            name="Location structure"
+            id="menu_location_structure"
+            parent="poll.menu_config"
+            sequence="2"/>
+            <menuitem
+              name="Units"
+              id="menu_geounit"
+              parent="poll.menu_location_structure"
+              action="poll.geounit_action_form"
+              sequence="1"/>
+            <menuitem
+              name="Types"
+              id="menu_geounit_type"
+              parent="poll.menu_location_structure"
+              action="poll.geounit_type_action_form"
+              sequence="1"/>
+</odoo>

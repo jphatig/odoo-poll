@@ -1,0 +1,8 @@
+.scannerwork/
+.idea/
+.vscode/
+*.pyc
+*.pyo
+*.odt#
+*.xls#
+__pycache__/

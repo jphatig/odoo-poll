@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="event_action_form" model="ir.actions.act_window">
+    <field name="name">Events</field>
+    <field name="res_model">poll.event</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Poll Events
+      </p>
+      <p>
+        An event is the program who triggers polls, an event can have more than one poll in order to collect votes in different dates on the same event.
+      </p>
+    </field>
+  </record>
+
+  <record id="event_view_tree" model="ir.ui.view">
+    <field name="name">Events</field>
+    <field name="model">poll.event</field>
+    <field name="arch" type="xml">
+      <tree string="Events">
+        <field name="name"/>
+        <field name="start_date"/>
+        <field name="finish_date"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="event_view_form" model="ir.ui.view">
+    <field name="name">Event</field>
+    <field name="model">poll.event</field>
+    <field name="arch" type="xml">
+      <form string="Event">
+        <header>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <!-- <sheet> -->
+          <group col="4">
+            <field name="name" colspan="4"/>
+            <field name="stand_capacity" colspan="4"/>
+            <field name="start_date"/>
+            <field name="finish_date"/>
+          </group>
+          <notebook attrs="{'invisible': [('id', '=', False)]}">
+            <page string="Polls">
+              <field name="poll_ids" attrs="{'readonly': ['|', ('state', 'in', ['finished', 'canceled']), ('id', '=', False)]}" context="{'default_event_id': id}">
+                <tree>
+                  <field name="name"/>
+                  <field name="start_date"/>
+                  <field name="finish_date"/>
+                  <field name="state"/>
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        <!-- </sheet> -->
+      </form>
+    </field>
+  </record>
+
+</odoo>

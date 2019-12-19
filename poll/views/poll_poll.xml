@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="poll_view_tree" model="ir.ui.view">
+    <field name="name">Polls</field>
+    <field name="model">poll.poll</field>
+    <field name="arch" type="xml">
+      <tree string="Polls">
+        <field name="name"/>
+        <field name="start_date"/>
+        <field name="finish_date"/>
+        <field name="state"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="poll_view_form" model="ir.ui.view">
+    <field name="name">Poll</field>
+    <field name="model">poll.poll</field>
+    <field name="arch" type="xml">
+      <form string="Poll">
+        <header>
+          <button name="state_doing" string="Mark as doing" class="oe_highlight" type="object" attrs="{'invisible': ['|', ('id', '=', False), ('state', 'not in', ['new'])]}"/>
+          <button name="state_done" string="Mark as done" class="oe_highlight" states="doing" type="object"/>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <div name="title" class="oe_title" attrs="{'invisible': [('event_id', '=', False)]}">
+          <label for="event_id"/>
+          <h1>
+            <field name="event_id" readonly="1"/>
+          </h1>
+        </div>
+        <group col="4">
+          <field name="name" colspan="4"/>
+          <field name="start_date"/>
+          <field name="finish_date"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+</odoo>

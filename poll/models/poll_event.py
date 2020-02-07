@@ -39,3 +39,9 @@ class Event(models.Model):
         inverse_name='event_id',
         readonly=False
     )
+
+    def set_done(self):
+        self.state = 'done'
+
+    def set_finish_date(self):
+        self.finish_date = fields.Datetime.now()

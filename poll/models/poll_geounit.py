@@ -56,10 +56,12 @@ class GeoUnit(models.Model):
 
     @api.multi
     def _complete_code(self):
+        """Set complete code using parents' code"""
         for record in self:
             record.complete_code = ''.join(record._get_parent_codes())
 
     def _get_parent_codes(self, codes=[]):
+        """Get parent's code recursively"""
         codes = [self.code or ''] + codes
         if self.parent_id.code:
             return self.parent_id._get_parent_codes(codes=codes)
@@ -67,10 +69,12 @@ class GeoUnit(models.Model):
 
     @api.multi
     def _hierarchy(self):
+        """Defines hierarchy string description"""
         for record in self:
             record.hierarchy = '/'.join(record._get_parent_names())
 
     def _get_parent_names(self, names=[]):
+        """Search parents and join them recursively"""
         names = [self.name or ''] + names
         if self.parent_id.name:
             return self.parent_id._get_parent_names(names=names)

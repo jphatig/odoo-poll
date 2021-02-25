@@ -35,7 +35,6 @@ class GeoUnitType(models.Model):
          'Type should have an unique parent'),
     ]
 
-    @api.multi
     def _child_id(self):
         """Sets type's child"""
         for record in self:
@@ -46,7 +45,6 @@ class GeoUnitType(models.Model):
         """Sets parent's child based on self"""
         self.parent_id.child_id = self.id
 
-    @api.multi
     def _hierarchy(self):
         """Defines hierarchy string description"""
         for record in self:

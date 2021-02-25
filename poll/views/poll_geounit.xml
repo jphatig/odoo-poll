@@ -52,7 +52,7 @@
               </field>
             </page>
           </notebook>
-          <group col="4">
+          <group col="4" invisible="1">
             <field name="parent_type_id" attrs="{'invisible': [('parent_type_id', '=', False)]}"/>
             <field name="child_type_id" attrs="{'invisible': [('child_type_id', '=', False)]}"/>
           </group>

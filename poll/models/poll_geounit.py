@@ -54,9 +54,8 @@ class GeoUnit(models.Model):
          'Code can not be repeated per type'),
     ]
 
-    @api.multi
     def _complete_code(self):
-        """Set complete code using parents' code"""
+        """Set complete code using parent's code"""
         for record in self:
             record.complete_code = ''.join(record._get_parent_codes())
 
@@ -67,7 +66,6 @@ class GeoUnit(models.Model):
             return self.parent_id._get_parent_codes(codes=codes)
         return codes
 
-    @api.multi
     def _hierarchy(self):
         """Defines hierarchy string description"""
         for record in self:

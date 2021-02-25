@@ -1,1 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_poll_event_users,poll_event_user,poll.model_poll_event,base.group_user,1,1,1,1
+access_poll_geounit_type_users,poll_geounit_type_user,poll.model_poll_geounit_type,base.group_user,1,1,1,1
+access_poll_geounit_users,poll_geounit_user,poll.model_poll_geounit,base.group_user,1,1,1,1
+access_poll_poll_users,poll_poll_user,poll.model_poll_poll,base.group_user,1,1,1,1

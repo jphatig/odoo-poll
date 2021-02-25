@@ -46,11 +46,13 @@
           <notebook attrs="{'invisible': [('id', '=', False)]}">
             <page string="Polls">
               <field name="poll_ids" attrs="{'readonly': ['|', ('state', 'in', ['finished', 'canceled']), ('id', '=', False)]}" context="{'default_event_id': id}">
-                <tree>
+                <tree editable="bottom">
                   <field name="name"/>
                   <field name="start_date"/>
                   <field name="finish_date"/>
-                  <field name="state"/>
+                  <field name="state" readonly="1"/>
+                  <button name="state_doing" string="Mark as doing" class="oe_highlight" type="object" attrs="{'invisible': ['|', ('id', '=', False), ('state', 'not in', ['new'])]}"/>
+                  <button name="state_done" string="Mark as done" class="oe_highlight" states="doing" type="object"/>
                 </tree>
               </field>
             </page>

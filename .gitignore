@@ -1,6 +1,7 @@
 .scannerwork/
 .idea/
 .vscode/
+
 *.pyc
 *.pyo
 *.odt#

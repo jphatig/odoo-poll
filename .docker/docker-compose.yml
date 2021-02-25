@@ -1,0 +1,21 @@
+version: '2'
+services:
+  web:
+    image: odoo:14
+    container_name: odoo_poll
+    command: odoo -u poll --dev=all
+    depends_on:
+      - db
+    ports:
+      - "8016:8069"
+    restart: always
+    volumes:
+      - ../:/mnt/extra-addons
+
+  db:
+    image: postgres:10.0
+    container_name: postgres_poll
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo

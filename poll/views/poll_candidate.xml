@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="candidate_action_form" model="ir.actions.act_window">
+    <field name="name">Candidates</field>
+    <field name="res_model">poll.candidate</field>
+    <field name="view_mode">tree,kanban,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Candidates
+      </p>
+      <p>
+        Manage candidate who aplly for polls
+      </p>
+    </field>
+  </record>
+
+  <record id="candidate_view_tree" model="ir.ui.view">
+    <field name="name">Candidates</field>
+    <field name="model">poll.candidate</field>
+    <field name="arch" type="xml">
+      <tree string="Candidates">
+        <field name="document"/>
+        <field name="partner_id"/>
+        <field name="event_id"/>
+        <field name="charge_id"/>
+        <field name="political_party_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="candidate_view_form" model="ir.ui.view">
+    <field name="name">Candidate</field>
+    <field name="model">poll.candidate</field>
+    <field name="arch" type="xml">
+      <form string="Candidate">
+        <group col="6">
+          <group colspan="2">
+            <div style="text-align: center"><strong>Candidate</strong></div>
+            <br/>
+            <field name="photo" widget="image" nolabel="1"/>
+            <!-- <field name="political_party_logo" widget="image" nolabel="1"/> -->
+          </group>
+          <group colspan="4" col="4" string="Personal info">
+            <group colspan="4">
+              <field name="partner_id" string="Person" context="{'form_view_ref': 'poll.partner_view_form'}"/>
+              <field name="document_type"/>
+              <field name="document"/>
+            </group>
+            <group colspan="4" string="Political info">
+              <field name="event_id"/>
+              <field name="charge_id"/>
+              <field name="political_party_id"/>
+              <field name="geounit_id" domain="[('type_id', '=', charge_geounit_type_id)]"/>
+            </group>
+          </group>
+        </group>
+        <group name="extra" invisible="1">
+          <field name="charge_geounit_type_id"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+  <record id="candidate_view_kanban" model="ir.ui.view">
+    <field name="name">Candidate</field>
+    <field name="model">poll.candidate</field>
+    <field name="arch" type="xml">
+      <kanban class="o_kanban_mobile">
+        <field name="id"/>
+        <field name="partner_id"/>
+        <field name="document_type"/>
+        <field name="document"/>
+        <field name="event_id"/>
+        <field name="charge_id"/>
+        <field name="political_party_id"/>
+        <templates>
+          <t t-name="kanban-box">
+            <div t-attf-class="oe_kanban_global_click">
+              <div class="o_kanban_image">
+                <img alt="Avatar" t-att-src="kanban_image('res.partner', 'photo', record.partner_id.raw_value)"/>
+              </div>
+              <div class="oe_kanban_details">
+                <ul>
+                  <li class="mb4">
+                    <strong><field name="partner_id"/></strong>
+                  </li>
+                  <li class="mb4" title="Document"><i role="img" aria-label="Document"/> <strong><field name="document_type"/></strong>: <field name="document"/></li>
+                  <li class="mb4" title="Document"><i role="img" aria-label="Document"/> <strong><field name="political_party_id"/></strong>: <field name="charge_id"/> / <field name="event_id"/></li>
+                </ul>
+              </div>
+            </div>
+          </t>
+        </templates>
+      </kanban>
+    </field>
+  </record>
+
+</odoo>

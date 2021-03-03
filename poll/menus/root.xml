@@ -13,25 +13,60 @@
         sequence="1"/>
           <menuitem
             name="Events"
-            id="menu_levents"
+            id="menu_events"
             parent="poll.menu_config"
             action="poll.event_action_form"
             sequence="1"/>
           <menuitem
+            name="People"
+            id="menu_people"
+            parent="poll.menu_config"
+            action="poll.partner_action_form"
+            sequence="2"/>
+          <menuitem
+            name="Political structure"
+            id="menu_political_structure"
+            parent="poll.menu_config"
+            sequence="3"/>
+              <menuitem
+                name="Charges"
+                id="menu_charges"
+                parent="poll.menu_political_structure"
+                action="poll.charge_action_form"
+                sequence="1"/>
+          <menuitem
             name="Location structure"
             id="menu_location_structure"
             parent="poll.menu_config"
+            sequence="4"/>
+              <menuitem
+                name="Units"
+                id="menu_geounit"
+                parent="poll.menu_location_structure"
+                action="poll.geounit_action_form"
+                sequence="1"/>
+              <menuitem
+                name="Types"
+                id="menu_geounit_type"
+                parent="poll.menu_location_structure"
+                action="poll.geounit_type_action_form"
+                sequence="2"/>
+      <menuitem
+        name="Participants"
+        id="menu_participants"
+        parent="poll.menu_poll_manage"
+        sequence="2"/>
+          <menuitem
+            name="Political Parties"
+            id="menu_political_parties"
+            parent="poll.menu_participants"
+            action="poll.political_party_action_form"
+            sequence="1"/>
+          <menuitem
+            name="Candidates"
+            id="menu_candidates"
+            parent="poll.menu_participants"
+            action="poll.candidate_action_form"
             sequence="2"/>
-            <menuitem
-              name="Units"
-              id="menu_geounit"
-              parent="poll.menu_location_structure"
-              action="poll.geounit_action_form"
-              sequence="1"/>
-            <menuitem
-              name="Types"
-              id="menu_geounit_type"
-              parent="poll.menu_location_structure"
-              action="poll.geounit_type_action_form"
-              sequence="1"/>
+
 </odoo>

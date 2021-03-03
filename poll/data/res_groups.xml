@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <data noupdate="0">
-
-    <record id="config_manager" model="res.groups">
+    <record model="res.groups" id="config_manager">
       <field name="name">Poll data manager</field>
       <field name="comment">This groups is in charge of configure poll previous data</field>
       <field name="category_id" ref="poll.poll_manage"/>
-      <field name="order">10</field>
     </record>
-
   </data>
 </odoo>

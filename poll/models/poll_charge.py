@@ -10,6 +10,11 @@ class Charge(models.Model):
     name = fields.Char(
         string='Name'
     )
+    geounit_type_id = fields.Many2one(
+        comodel_name='poll.geounit.type',
+        string='Geolocation type jurisdiction'
+    )
     active = fields.Boolean(
-        string='Active'
+        string='Active',
+        default=True
     )

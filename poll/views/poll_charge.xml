@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="charge_action_form" model="ir.actions.act_window">
+    <field name="name">Charges</field>
+    <field name="res_model">poll.charge</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Charges
+      </p>
+      <p>
+        Configure charges for applying candidates
+      </p>
+    </field>
+  </record>
+
+  <record id="charge_view_tree" model="ir.ui.view">
+    <field name="name">Charges</field>
+    <field name="model">poll.charge</field>
+    <field name="arch" type="xml">
+      <tree string="Charges">
+        <field name="name"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="charge_view_form" model="ir.ui.view">
+    <field name="name">Charge</field>
+    <field name="model">poll.charge</field>
+    <field name="arch" type="xml">
+      <form string="Political party">
+        <group colspan="4" col="4">
+          <field name="name"/>
+          <field name="geounit_type_id"/>
+          <field name="active"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+</odoo>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="political_party_action_form" model="ir.actions.act_window">
+    <field name="name">Political Parties</field>
+    <field name="res_model">poll.political.party</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Political Parties
+      </p>
+      <p>
+        Configure political parties who participate in different polls
+      </p>
+    </field>
+  </record>
+
+  <record id="political_party_view_tree" model="ir.ui.view">
+    <field name="name">Political Parties</field>
+    <field name="model">poll.political.party</field>
+    <field name="arch" type="xml">
+      <tree string="Political Parties">
+        <field name="name"/>
+        <field name="code"/>
+        <field name="description"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="political_party_view_form" model="ir.ui.view">
+    <field name="name">Political Party</field>
+    <field name="model">poll.political.party</field>
+    <field name="arch" type="xml">
+      <form string="Political party">
+        <header>
+          <field name="state" widget="statusbar"/>
+        </header>
+        <group col="6">
+          <group colspan="2">
+            <div style="text-align: center"><strong>Logo</strong></div>
+            <br/>
+            <field name="logo" widget="image" nolabel="1"/>
+          </group>
+          <group colspan="4">
+            <field name="name"/>
+            <field name="code"/>
+            <field name="legal_partner_id"/>
+            <field name="goverment_plan" filename="goverment_plan_filename"/>
+            <field name="description"/>
+          </group>
+        </group>
+        <field name="goverment_plan_filename" invisible="1"/>
+      </form>
+    </field>
+  </record>
+
+</odoo>

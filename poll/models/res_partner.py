@@ -49,6 +49,10 @@ class Partner(models.Model):
         string='Complete Residence Location',
         related='residence_geounit_id.hierarchy'
     )
+    stand_id = fields.Many2one(
+        comodel_name='res.partner',
+        string='Stand for voting'
+    )
 
     @api.onchange('gender')
     def onchange_gender(self):

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <record id="precinct_action_form" model="ir.actions.act_window">
+    <field name="name">Precincts</field>
+    <field name="res_model">poll.precinct</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="oe_view_nocontent_create">
+        Precincts
+      </p>
+      <p>
+        Here you can define Precincts, each precinct describes a place or group of stands used by people for voting.
+      </p>
+    </field>
+  </record>
+
+  <record id="precinct_view_tree" model="ir.ui.view">
+    <field name="name">Precincts List</field>
+    <field name="model">poll.precinct</field>
+    <field name="arch" type="xml">
+      <tree string="Precincts">
+        <field name="name"/>
+        <field name="geounit_type_id"/>
+        <field name="address"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="precinct_view_form" model="ir.ui.view">
+    <field name="name">Precinct Form</field>
+    <field name="model">poll.precinct</field>
+    <field name="arch" type="xml">
+      <form string="Precinct">
+        <group col="4">
+          <field name="name" colspan="4"/>
+          <field name="geounit_type_id"/>
+          <field name="address"/>
+        </group>
+        <group col="4" invisible="1">
+          <field name="active"/>
+        </group>
+      </form>
+    </field>
+  </record>
+
+</odoo>

@@ -31,6 +31,7 @@
         'views/poll_candidate.xml',
         'views/poll_charge.xml',
         'views/res_partner.xml',
+        'views/poll_precinct.xml',
         # Menus
         'menus/root.xml',
         # Access Control Rules

@@ -8,3 +8,5 @@ access_poll_candidate_users,poll_candidate_user,poll.model_poll_candidate,base.g
 access_poll_charge_users,poll_charge_user,poll.model_poll_charge,base.group_user,1,1,1,1
 access_res_partner_gender_users,res_partner_gender_user,poll.model_res_partner_gender,base.group_user,1,1,1,1
 access_poll_precinct_users,poll_precinct_user,poll.model_poll_precinct,base.group_user,1,1,1,1
+access_poll_precinct_users,poll_precinct_user,poll.model_poll_precinct,base.group_user,1,1,1,1
+access_poll_stand_users,poll_stand_user,poll.model_poll_stand,base.group_user,1,1,1,1

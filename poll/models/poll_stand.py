@@ -10,6 +10,9 @@ class Stand(models.Model):
     name = fields.Char(
         string='Description'
     )
+    number = fields.Integer(
+        string='Number'
+    )
     precinct_id = fields.Many2one(
         comodel_name='poll.precinct',
         string='Precinct'
@@ -17,6 +20,9 @@ class Stand(models.Model):
     person_ids = fields.One2many(
         comodel_name='res.partner',
         inverse_name='stand_id'
+    )
+    people_quant = fields.Integer(
+        string='People quant'
     )
     gender_id = fields.Many2one(
         comodel_name='res.partner.gender',
@@ -26,3 +32,5 @@ class Stand(models.Model):
         string='Active',
         default=True
     )
+
+    

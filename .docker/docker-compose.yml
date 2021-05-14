@@ -7,7 +7,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8016:8069"
+      - "8013:8069"
     restart: always
     volumes:
       - ../:/mnt/extra-addons
